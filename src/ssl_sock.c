@@ -3616,7 +3616,7 @@ ignore_entry:
 static int ssl_initialize_random()
 {
 	unsigned char random;
-	static int random_initialized = 0;
+	static int random_initialized = 1;
 
 	if (!random_initialized && RAND_bytes(&random, 1) != 0)
 		random_initialized = 1;
