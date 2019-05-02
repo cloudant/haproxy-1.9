@@ -737,6 +737,10 @@ void mworker_reload()
 		ptdf->fct();
 	if (fdtab)
 		deinit_pollers();
+	/* Close OpenSSL random devices, if open */
+	/* Note: If not already initialised, this may cause OpenSSL rand_lib initialisation... */
+	void RAND_keep_random_devices_open(int keep);
+	RAND_keep_random_devices_open(0);
 
 	/* restore the initial FD limits */
 	limit.rlim_cur = rlim_fd_cur_at_boot;
