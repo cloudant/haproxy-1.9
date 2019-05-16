@@ -3084,7 +3084,8 @@ compression offload
       response is already compressed (see compression offload)
     * The response contains an invalid "ETag" header or multiple ETag headers
 
-  Note: The compression does not emit the Warning header.
+  Note: The compression does not rewrite Etag headers, and does not emit the
+        Warning header.
 
   Examples :
         compression algo gzip
